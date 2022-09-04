@@ -33,7 +33,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      mode : 'read',
+      mode : 'welcome',
+      selected_content_id : null,
       welcome : {title : "Welcome", desc : "Hello React App!"},
       Subject : {title : "Web", desc : "World Wide Web"},
       Content : [
@@ -50,13 +51,29 @@ class App extends Component {
       _desc = this.state.welcome.desc;
     }
     else if (this.state.mode === 'read'){
-      _title = this.state.Content[0].title;
-      _desc = this.state.Content[0].desc;
+      const data = this.state.Content.filter((cont) => cont.id === this.state.selected_content_id);
+      _title = data[0].title;
+      _desc = data[0].desc;
     }
     return (
       <div className='App'>
-        <Subject title = {this.state.Subject.title} desc={this.state.Subject.desc}></Subject>
-        <TOC data = {this.state.Content}></TOC>
+        <Subject title = {this.state.Subject.title} 
+        desc={this.state.Subject.desc} 
+        onPageChange={()=>{
+          this.setState({mode : "welcome"});
+        }}></Subject>
+        
+        <TOC data = {this.state.Content}
+             onPageChange = {(num) => {
+              this.setState(
+                {
+                  mode : "read",
+                  selected_content_id : num,
+                }
+              );
+             }}
+        ></TOC>
+
         <Content title = {_title} desc={_desc}></Content>
       </div>
     );
