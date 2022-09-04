@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+li{
+    list-style: none;
+}
+
+.App{
+    padding: 20px;
+}
+
+.App header{
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.App header h1{
+    margin-bottom: 20px;
+}
+
+.App header h1 a{
+    font-size: 40px;
+    color: blue;
+}
+
+.App ul{
+    margin-bottom: 40px;
+    display: flex;
+}
+
+.App ul li *{
+    padding: 10px;
+    margin-left: 10px;
+    border: 3px ridge #f5f5f5;
+}
+
+.App ul li:hover *{
+    background-color: rgb(10, 38, 249);
+    color: #fff;
+}
+
+.App article{
+    margin-bottom: 20px;
+}
+
+.App article h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.App div{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.App article form p{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.App article form p input,
+.App article form p textarea{
+    padding: 10px;
+}
+
+.App article form p span{
+    margin-right: 20px;
+}
+
+.App article form input[type="submit"]{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
